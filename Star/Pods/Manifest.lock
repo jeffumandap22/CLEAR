@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
+  - Device (3.1.2)
+  - SwiftyJSON (4.0.0)
+  - UIColor_Hex_Swift (5.1.0)
+
+DEPENDENCIES:
+  - Alamofire (= 4.9.1)
+  - AlamofireImage
+  - Device (~> 3.1.2)
+  - SwiftyJSON (= 4.0.0)
+  - UIColor_Hex_Swift (~> 5.1.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - Device
+    - SwiftyJSON
+    - UIColor_Hex_Swift
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
+  Device: 62242076214c30fb5760174b3601cefafa70a481
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  UIColor_Hex_Swift: 8be7432edacb7fa91c78aa05ef3c30b66e4f9415
+
+PODFILE CHECKSUM: e25760c47b64c76beb1bbc521a403fc6828dd217
+
+COCOAPODS: 1.9.1
