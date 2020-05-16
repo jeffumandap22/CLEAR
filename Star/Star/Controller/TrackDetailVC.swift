@@ -47,12 +47,12 @@ class TrackDetailVC: UIViewController {
         
         if !(idArray.contains(trackId!)) {
             idArray.append(trackId!)
-            defaults.set(idArray, forKey: "SavedTrackIDs")
+            defaults.set(idArray, forKey: Common.defaultsKey)
         } else {
             if let index = idArray.firstIndex(of: trackId!) {
                 idArray.remove(at: index)
             }
-            defaults.set(idArray, forKey: "SavedTrackIDs")
+            defaults.set(idArray, forKey: Common.defaultsKey)
         }
         reloadIdArray()
     }
@@ -85,14 +85,15 @@ class TrackDetailVC: UIViewController {
     }
     
     func reloadIdArray() {
-        idArray = defaults.array(forKey: "SavedTrackIDs")  as? [Int] ?? [Int]()
+        idArray = defaults.array(forKey: Common.defaultsKey)  as? [Int] ?? [Int]()
+    
         if idArray.contains(track!.trackId) {
-            favoriteButton.setTitle("Remove To Favorites", for: .normal)
-            favoriteButton.backgroundColor = UIColor("#ef403d")
+            favoriteButton.setTitle(Common.removeFavoriteButtonLabel, for: .normal)
+            favoriteButton.backgroundColor = UIColor(Common.removeFavoriteButtonColor)
 
         } else {
-            favoriteButton.setTitle("Add to favorites", for: .normal)
-            favoriteButton.backgroundColor = UIColor("#51C358")
+            favoriteButton.setTitle(Common.addFavoriteButtonLabel, for: .normal)
+            favoriteButton.backgroundColor = UIColor(Common.addFavoriteButtonColor)
         }
     }
 

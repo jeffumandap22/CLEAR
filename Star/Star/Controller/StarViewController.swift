@@ -60,7 +60,7 @@ class StarViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         
-        let array = defaults.array(forKey: "SavedTrackIDs")  as? [Int] ?? [Int]()
+        let array = defaults.array(forKey: Common.defaultsKey)  as? [Int] ?? [Int]()
     
         cell.starImage.layer.cornerRadius = 8.0
         cell.starImage.clipsToBounds = true
@@ -87,6 +87,9 @@ class StarViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableViewData.delegate = self
         tableViewData.dataSource = self
         
+        
+        let data = defaults.array(forKey: Common.defaultsKey)  as? [Int] ?? [Int]()
+        
         NetworkAPI.getData(onSuccess: { (result) in
             self.tracks = result
             self.tableViewData.reloadData()
@@ -96,8 +99,10 @@ class StarViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         })
 
-        defaults.set(idArray, forKey: "SavedTrackIDs")
+        
+        
 
+        
         Common.darkModeAction(self, labels: [], views: [self.view], headerView: [])
         tableViewData.reloadData()
     }

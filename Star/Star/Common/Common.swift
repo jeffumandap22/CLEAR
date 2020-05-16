@@ -13,7 +13,13 @@ import UIKit
 @available(iOS 12.0, *)
 public class Common: NSObject {
     
-    static let cantConnectToInternet = "Unable to connect to the Internet."
+    static let defaultsKey                  = "SavedTrackIDs"
+    static let cantConnectToInternet        = "Unable to connect to the Internet."
+    
+    static let removeFavoriteButtonLabel    = "Remove To Favorites"
+    static let addFavoriteButtonLabel       = "Add to favorites"
+    static let removeFavoriteButtonColor    = "#ef403d"
+    static let addFavoriteButtonColor       = "#51C358"
 
     static func quickAlert(_ vc:UIViewController, mtitle:String, message:String, onDone: (()->())?){
         let alert = UIAlertController(title: mtitle, message: message, preferredStyle: .alert)
@@ -27,25 +33,11 @@ public class Common: NSObject {
         alert.addAction(okAction)
         vc.present(alert, animated: true, completion: nil)
     }
-
-    
-    static func messageBox(_ vc:UIViewController, messageTitle: String, messageAlert: String, messageBoxStyle: UIAlertController.Style, alertActionStyle: UIAlertAction.Style,
-                    completionHandler: @escaping () -> Void) {
-        let alert = UIAlertController(title: messageTitle, message: messageAlert, preferredStyle: messageBoxStyle)
-
-        let okAction = UIAlertAction(title: "Ok", style: alertActionStyle) { _ in
-            completionHandler()
-        }
-
-        alert.addAction(okAction)
-
-        vc.present(alert, animated: true, completion: nil)
-    }
     
     static func darkModeAction(_ vc: UIViewController, labels:[UILabel], views:[UIView], headerView: [UIView]) {
         
         if vc.traitCollection.userInterfaceStyle == .dark {
-            // User Interface is Dark
+            
             for label in labels {
                 label.textColor = .white
             }
@@ -56,7 +48,7 @@ public class Common: NSObject {
                 header.backgroundColor = .gray
             }
         } else {
-            // User Interface is Light
+            //
         }
         
     }
